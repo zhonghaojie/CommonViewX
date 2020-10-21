@@ -277,7 +277,6 @@ public class DYLoadingView extends View {
 
     @Override
     protected void onDetachedFromWindow() {
-        stop();
         super.onDetachedFromWindow();
     }
 

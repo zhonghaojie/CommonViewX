@@ -6,8 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.dueeeke.videoplayer.player.VideoView;
-import com.dueeeke.videoplayer.player.VideoViewConfig;
-import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.dueeeke.videoplayer.util.L;
 import com.lege.legecommonview.videoplayer.BaseVideoActivity;
 import com.lege.legecommonview.videoplayer.adapter.Tiktok2Adapter;
@@ -15,7 +13,6 @@ import com.lege.legecommonview.videoplayer.bean.TiktokBean;
 import com.lege.legecommonview.videoplayer.cache.PreloadManager;
 import com.lege.legecommonview.videoplayer.cache.ProxyVideoCacheManager;
 import com.lege.legecommonview.videoplayer.controller.TikTokController;
-import com.lege.legecommonview.videoplayer.render.TikTokRenderViewFactory;
 import com.lege.legecommonview.videoplayer.util.Utils;
 import com.lege.legecommonview.videoplayer.widget.VerticalViewPager;
 
@@ -28,7 +25,7 @@ import java.util.List;
  * Created by dueeeke on 2019/10/13.
  */
 
-public class TikTok2Activity extends BaseVideoActivity<VideoView> {
+public class TikTokActivity extends BaseVideoActivity<VideoView> {
 
     /**
      * 当前播放位置
@@ -45,7 +42,7 @@ public class TikTok2Activity extends BaseVideoActivity<VideoView> {
     private static final String KEY_INDEX = "index";
 
     public static void start(Context context, int index) {
-        Intent i = new Intent(context, TikTok2Activity.class);
+        Intent i = new Intent(context, TikTokActivity.class);
         i.putExtra(KEY_INDEX, index);
         context.startActivity(i);
     }
