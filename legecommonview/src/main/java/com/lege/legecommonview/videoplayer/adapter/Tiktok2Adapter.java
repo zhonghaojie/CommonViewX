@@ -18,7 +18,7 @@ import com.lege.legecommonview.videoplayer.cache.PreloadManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tiktok2Adapter extends PagerAdapter {
+public class Tiktok2Adapter<T extends IVideoContentProvider> extends PagerAdapter {
     MediaMetadataRetriever mmr = new MediaMetadataRetriever();
     /**
      * View缓存池，从ViewPager中移除的item将会存到这里面，用来复用
@@ -28,9 +28,9 @@ public class Tiktok2Adapter extends PagerAdapter {
     /**
      * 数据源
      */
-    private List<TiktokBean> mVideoBeans;
+    private List<T> mVideoBeans;
 
-    public Tiktok2Adapter(List<TiktokBean> videoBeans) {
+    public Tiktok2Adapter(List<T> videoBeans) {
         this.mVideoBeans = videoBeans;
     }
 
@@ -62,7 +62,7 @@ public class Tiktok2Adapter extends PagerAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        TiktokBean item = mVideoBeans.get(position);
+        IVideoContentProvider item = mVideoBeans.get(position);
         //开始预加载
         PreloadManager.getInstance(context).addPreloadTask(item.getUrl(), position);
 
@@ -74,7 +74,7 @@ public class Tiktok2Adapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         View itemView = (View) object;
         container.removeView(itemView);
-        TiktokBean item = mVideoBeans.get(position);
+        IVideoContentProvider item = mVideoBeans.get(position);
         //取消预加载
         PreloadManager.getInstance(container.getContext()).removePreloadTask(item.getUrl());
         //保存起来用来复用

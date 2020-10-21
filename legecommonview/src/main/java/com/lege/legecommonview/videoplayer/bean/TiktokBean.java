@@ -1,11 +1,15 @@
 package com.lege.legecommonview.videoplayer.bean;
 
 
+import com.lege.legecommonview.videoplayer.adapter.IVideoContentProvider;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TiktokBean {
+public class TiktokBean implements IVideoContentProvider {
+
+
     private String url;
 
     public TiktokBean(String url) {
