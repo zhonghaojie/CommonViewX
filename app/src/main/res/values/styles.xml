@@ -7,5 +7,20 @@
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
 	</style>
-
+	<style name="dialogStyle" parent="@android:style/Theme.Dialog">
+		<!--无边框-->
+		<item name="android:windowFrame">@null</item>
+		<!--悬浮-->
+		<item name="android:windowIsFloating">true</item>
+		<!--布满整个窗口-->
+		<item name="android:windowFullscreen">true</item>
+		<!--半透明-->
+		<item name="android:windowIsTranslucent">false</item>
+		<!--无标题-->
+		<item name="android:windowNoTitle">true</item>
+		<!--允许模糊-->
+		<item name="android:backgroundDimEnabled">true</item>
+		<!--背景透明-->
+		<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
 </resources>

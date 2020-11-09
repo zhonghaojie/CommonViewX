@@ -10,7 +10,7 @@ android {
         minSdkVersion versions.android_min_sdk
         targetSdkVersion versions.android_target_sdk
         versionCode 1
-        versionName "1.0.2"
+        versionName "1.0.3"
 
     }
 
@@ -34,4 +34,6 @@ dependencies {
     api libs.appcompat_v7
     api libs.recyclerview
     implementation libs.logger
+    //加载框
+    api libs.avi
 }
