@@ -28,8 +28,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation libs.constraintLayout
-    api libs.support_v4
-    api libs.appcompat_v7
     implementation libs.logger
     implementation project(path: ':legecommonview')
+//    implementation 'com.github.zhonghaojie:LegeBase:1.0.2.6'
 }
