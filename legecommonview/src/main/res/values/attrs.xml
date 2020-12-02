@@ -14,4 +14,11 @@
         <attr name="scaleStartFraction" format="float"/>
         <attr name="scaleEndFraction" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="BackView">
+        <attr name="max_drag_length" format="dimension"/>
+        <attr name="current_drag_length" format="dimension"/>
+        <attr name="background_color" format="color"/>
+        <attr name="stroke_width" format="dimension"/>
+    </declare-styleable>
 </resources>
