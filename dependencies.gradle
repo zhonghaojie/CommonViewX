@@ -4,7 +4,7 @@ ext.versions = [
         android_min_sdk      : 21,
         android_target_sdk   : 22,
         version_code         : 18,
-        version_name         : "3.0.10",
+        version_name         : "3.0.23",
         support_lib          : "27.1.1",
 
         junit                : "4.12",

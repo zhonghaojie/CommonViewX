@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><!--<com.lege.commonview.tarottest.CardItem xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:id="@+id/card"-->
+<!--    android:layout_marginTop="@dimen/y8"-->
+<!--    android:layout_marginBottom="y8"-->
+<!--    app:src="@drawable/pic_tarot_bg"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    app:view_width="@dimen/x160"-->
+<!--    app:view_height="@dimen/y210">-->
+
+<!--       -->
+<!--</com.lege.commonview.tarottest.CardItem>-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/y257">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="@dimen/x120"
+        android:layout_height="@dimen/y217"
+        android:scaleType="fitXY"
+        android:src="@drawable/pic_beimian" />
+</LinearLayout>
+
+
+
+

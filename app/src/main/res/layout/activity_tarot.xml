@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#252B3E">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="@dimen/x300"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x90"
+        android:clipChildren="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:checked="true"
+        android:drawableTop="@drawable/sel_tab_constellation"
+        android:padding="@dimen/x10"
+        android:text="星座运势"
+        android:drawablePadding="@dimen/y10"
+        android:textColor="@color/white"
+        android:textSize="@dimen/x22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.lege.legecommonview.pagecontrol.BackView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y100"
+        android:layout_marginStart="@dimen/x20"
+        app:background_color="#ff0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:max_drag_length="@dimen/x30"
+        app:stroke_width="@dimen/x10" />
+</android.support.constraint.ConstraintLayout>

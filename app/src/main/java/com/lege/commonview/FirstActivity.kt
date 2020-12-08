@@ -5,8 +5,11 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.SeekBar
+import com.lege.commonview.tarottest.TarotActivity
+import kotlinx.android.synthetic.main.activity_first.*
 
-class FirstActivity : AppCompatActivity() {
+class FirstActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,5 +28,61 @@ class FirstActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         setContentView(R.layout.activity_first)
 //        startActivity(Intent(this,TikTokActivity::class.java))
+        initView()
+    }
+
+    private fun initView() {
+        btn_reset.setOnClickListener {
+            seekbarX.progress = 50
+            seekbarY.progress = 50
+            seekbarZ.progress = 50
+        }
+        seekbarX.setOnSeekBarChangeListener(this)
+        seekbarY.setOnSeekBarChangeListener(this)
+        seekbarZ.setOnSeekBarChangeListener(this)
+        card.postDelayed({
+            card.rotateX = -60
+        },2000)
+
+        btn_next.setOnClickListener {
+            startActivity(Intent(this,TarotActivity::class.java))
+        }
+    }
+
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        seekBar?.let {
+            val rotate = 360 * (progress - 50) / 50
+            when (it.id) {
+                R.id.seekbarX -> {
+                    card.rotateX = rotate
+                }
+                R.id.seekbarY -> {
+                    card.rotateY = rotate
+                }
+                R.id.seekbarZ -> {
+                    card.rotateZ = rotate
+                }
+            }
+        }
+    }
+
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+    }
+
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+        seekBar?.let {
+            val rotate = 360 * (it.progress - 50) / 50
+            when (it.id) {
+                R.id.seekbarX -> {
+                    card.rotateX = rotate
+                }
+                R.id.seekbarY -> {
+                    card.rotateY = rotate
+                }
+                R.id.seekbarZ -> {
+                    card.rotateZ = rotate
+                }
+            }
+        }
     }
 }

@@ -30,5 +30,10 @@ dependencies {
     implementation libs.constraintLayout
     implementation libs.logger
     implementation project(path: ':legecommonview')
-//    implementation 'com.github.zhonghaojie:LegeBase:1.0.2.6'
+    implementation 'com.github.zhonghaojie:LegeBase:1.0.2.9'
+    implementation 'rouchuan.viewpagerlayoutmanager:viewpagerlayoutmanager:2.0.22'
+    implementation libs.cardview
+    configurations.all {
+        resolutionStrategy.force "com.github.bumptech.glide:glide:4.8.0"
+    }
 }

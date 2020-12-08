@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CardItem">
+        <attr name="rotateX" format="dimension"/>
+        <attr name="rotateY" format="dimension"/>
+        <attr name="rotateZ" format="dimension"/>
+        <attr name="animateDuration" format="integer"/>
+        <attr name="src" format="reference"/>
+        <attr name="view_height" format="dimension"/>
+        <attr name="view_width" format="dimension"/>
+    </declare-styleable>
+
+</resources>
