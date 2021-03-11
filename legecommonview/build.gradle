@@ -30,6 +30,8 @@ dependencies {
     api 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.6'
     api 'com.github.dueeeke.dkplayer:videocache:3.2.6'
     api 'com.github.dueeeke.dkplayer:dkplayer-ui:3.2.6'
+    api 'com.github.dueeeke.dkplayer:player-exo:3.2.6'
+    api 'com.github.dueeeke.dkplayer:player-ijk:3.2.6'
     api libs.support_v4
     api libs.appcompat_v7
     api libs.recyclerview
