@@ -14,7 +14,10 @@
         <attr name="scaleStartFraction" format="float"/>
         <attr name="scaleEndFraction" format="float"/>
     </declare-styleable>
-
+    <declare-styleable name="RoundRectLayout">
+        <attr name="layout_corners" format="dimension"/>
+        <attr name="round_mode" format="integer"/>
+    </declare-styleable>
     <declare-styleable name="BackView">
         <attr name="max_drag_length" format="dimension"/>
         <attr name="current_drag_length" format="dimension"/>
