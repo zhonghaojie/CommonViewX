@@ -29,4 +29,18 @@ object ToastHelp {
         ToastUtils.getView<View>().findViewById<TextView>(R.id.tv_toast_content)?.text = msg
         ToastUtils.show(msg)
     }
+
+    fun toastWithIcon(msg: Int, icon: Int = R.drawable.ico_tishi) {
+        ToastUtils.setView(R.layout.layout_toast_with_icon)
+        ToastUtils.getView<View>().findViewById<TextView>(R.id.tv_toast_content)?.setText(msg)
+        ToastUtils.getView<View>().findViewById<ImageView>(R.id.iv_toast_icon)
+            ?.setImageResource(icon)
+        ToastUtils.show(msg)
+    }
+
+    fun toastWithoutIcon(msg: Int) {
+        ToastUtils.setView(R.layout.layout_toast_without_icon)
+        ToastUtils.getView<View>().findViewById<TextView>(R.id.tv_toast_content)?.setText(msg)
+        ToastUtils.show(msg)
+    }
 }
