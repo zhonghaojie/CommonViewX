@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="@dimen/y75"
+	android:background="@drawable/bg_toast"
+	android:gravity="center_vertical"
+	android:minWidth="@dimen/x260"
+	android:paddingStart="@dimen/x20"
+	android:paddingEnd="@dimen/x20">
+
+	<ImageView
+		android:id="@+id/iv_toast_icon"
+		android:layout_width="@dimen/x30"
+		android:layout_height="@dimen/y30" />
+
+	<TextView
+		android:id="@+id/tv_toast_content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="@dimen/x10"
+		android:textColor="#ffffff"
+		android:textSize="@dimen/x28"
+		tools:text="超出收藏上限" />
+</LinearLayout>
