@@ -9,7 +9,9 @@
     android:paddingEnd="@dimen/x20">
 
     <ImageView
+        android:src="@drawable/ico_tishi"
         android:id="@+id/iv_toast_icon"
+        android:scaleType="centerInside"
         android:layout_width="@dimen/x30"
         android:layout_height="@dimen/y30" />
 
