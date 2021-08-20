@@ -16,11 +16,7 @@ object ToastHelp {
     fun initToastUtil(app:Application,style: ToastBlackStyle = MyToastBlackStyle(app)){
         ToastUtils.init(app,style)
     }
-    fun toastWithIcon(msg: String, icon: Int? = null) {
-        if (icon == null) {
-            toastWithoutIcon(msg)
-            return
-        }
+    fun toastWithIcon(msg: String, icon: Int = R.drawable.ico_tishi) {
         ToastUtils.setView(R.layout.layout_toast_with_icon)
         ToastUtils.getView<View>().findViewById<TextView>(R.id.tv_toast_content)?.text = msg
         ToastUtils.getView<View>().findViewById<ImageView>(R.id.iv_toast_icon)

@@ -39,7 +39,7 @@ class FirstActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
             seekbarY.progress = 50
             seekbarZ.progress = 50
 //            ToastUtils.show("吐司")
-            ToastHelp.toastWithIcon("这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast")
+            ToastHelp.toastWithIcon("这是一个Toast")
         }
         seekbarX.setOnSeekBarChangeListener(this)
         seekbarY.setOnSeekBarChangeListener(this)
