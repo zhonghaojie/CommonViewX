@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.SeekBar
+import com.hjq.toast.ToastUtils
 import com.lege.commonview.tarottest.TarotActivity
+import com.lege.legecommonview.toast.ToastHelp
 import kotlinx.android.synthetic.main.activity_first.*
 
 class FirstActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
@@ -36,6 +38,8 @@ class FirstActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
             seekbarX.progress = 50
             seekbarY.progress = 50
             seekbarZ.progress = 50
+//            ToastUtils.show("吐司")
+            ToastHelp.toastWithIcon("这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast这是一个Toast")
         }
         seekbarX.setOnSeekBarChangeListener(this)
         seekbarY.setOnSeekBarChangeListener(this)

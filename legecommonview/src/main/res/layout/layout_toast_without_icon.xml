@@ -8,11 +8,6 @@
     android:paddingStart="@dimen/x20"
     android:paddingEnd="@dimen/x20">
 
-    <ImageView
-        android:id="@+id/iv_toast_icon"
-        android:layout_width="@dimen/x30"
-        android:layout_height="@dimen/y30" />
-
     <TextView
         android:id="@+id/tv_toast_content"
         android:layout_width="wrap_content"
@@ -20,7 +15,7 @@
         android:layout_marginStart="@dimen/x10"
         android:gravity="center_vertical"
         android:maxWidth="@dimen/x500"
-        android:minWidth="@dimen/x260"
+        android:minWidth="@dimen/x200"
         android:textColor="#ffffff"
         android:textSize="@dimen/x28"
         tools:text="超出收藏上限" />
