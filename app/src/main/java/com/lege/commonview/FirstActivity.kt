@@ -4,9 +4,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.view.View
 import android.widget.SeekBar
-import com.hjq.toast.ToastUtils
 import com.lege.commonview.tarottest.TarotActivity
 import com.lege.legecommonview.toast.ToastHelp
 import kotlinx.android.synthetic.main.activity_first.*

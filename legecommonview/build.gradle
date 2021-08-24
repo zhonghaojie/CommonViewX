@@ -36,6 +36,7 @@ dependencies {
     api libs.appcompat_v7
     api libs.recyclerview
     api libs.toast
+    api libs.indicatorseekbar
     implementation libs.logger
 
     //加载框
