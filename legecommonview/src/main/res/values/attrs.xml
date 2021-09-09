@@ -24,4 +24,9 @@
         <attr name="background_color" format="color"/>
         <attr name="stroke_width" format="dimension"/>
     </declare-styleable>
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="swipeEnable" format="boolean"/>
+        <attr name="ios" format="boolean"/>
+        <attr name="leftSwipe" format="boolean"/>
+    </declare-styleable>
 </resources>
