@@ -52,7 +52,7 @@ import com.lege.legecommonview.R;
  */
 public class SwipeMenuLayout extends ViewGroup {
 
-    interface SwipeMenuItemStateChangeListener{
+    public static interface SwipeMenuItemStateChangeListener{
         void stateChange(boolean isExpand);
     }
     private static final String TAG = "zxt/SwipeMenuLayout";
