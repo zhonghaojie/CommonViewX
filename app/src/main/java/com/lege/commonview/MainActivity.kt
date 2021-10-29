@@ -2,10 +2,10 @@ package com.lege.commonview
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,13 +52,15 @@ class MainActivity : AppCompatActivity() {
         list.add(videoInfo6)
         list.add(videoInfo7)
         list.add(videoInfo8)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        val snapHelper = PagerSnapHelper()
+        recyclerview.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this)
+        val snapHelper = androidx.recyclerview.widget.PagerSnapHelper()
         snapHelper.attachToRecyclerView(recyclerview)
-        recyclerview.adapter = object:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+        recyclerview.adapter = object:
+            androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>(){
             private val inflater:LayoutInflater = LayoutInflater.from(this@MainActivity)
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-                val holder = object:RecyclerView.ViewHolder(inflater.inflate(R.layout.item_video_player,parent,false)){}
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
+                val holder = object: androidx.recyclerview.widget.RecyclerView.ViewHolder(inflater.inflate(R.layout.item_video_player,parent,false)){}
                 return holder
             }
 
@@ -66,11 +68,11 @@ class MainActivity : AppCompatActivity() {
                 return list.size
             }
 
-            override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
                 holder.itemView.findViewById<TikTokVideoPlayer>(R.id.video_player).setVideoUrl(list[position])
             }
 
-            override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+            override fun onViewRecycled(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder) {
                 super.onViewRecycled(holder)
 
             }

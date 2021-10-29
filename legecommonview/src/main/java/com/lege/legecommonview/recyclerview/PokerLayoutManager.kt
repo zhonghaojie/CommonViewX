@@ -1,9 +1,9 @@
 package com.lege.legecommonview.recyclerview
 
 import android.graphics.PointF
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.LinearSmoothScroller
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -19,18 +19,18 @@ class PokerLayoutManager @JvmOverloads constructor(
     private val reverseLayout: Boolean = false,
     private val offset: Int = 0,
     private val changeDrawingOrder: Boolean = false
-) : RecyclerView.LayoutManager(), RecyclerView.SmoothScroller.ScrollVectorProvider {
+) : androidx.recyclerview.widget.RecyclerView.LayoutManager(), androidx.recyclerview.widget.RecyclerView.SmoothScroller.ScrollVectorProvider {
 
     companion object {
-        const val HORIZONTAL = LinearLayoutManager.HORIZONTAL
-        const val VERTICAL = LinearLayoutManager.VERTICAL
+        const val HORIZONTAL = androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
+        const val VERTICAL = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 
         const val FILL_START_TO_END = 1
         const val FILL_END_TO_START = -1
     }
 
     //将要scrollTo的Position
-    private var mPendingScrollPosition: Int = RecyclerView.NO_POSITION
+    private var mPendingScrollPosition: Int = androidx.recyclerview.widget.RecyclerView.NO_POSITION
 
     //当前要填充view的索引
     private var mCurrentPosition: Int = 0
@@ -45,16 +45,16 @@ class PokerLayoutManager @JvmOverloads constructor(
     private val mOutChildren = hashSetOf<View>()
 
     //每次fill view后就记录下开始child和结束child的position
-    private var mStartPosition: Int = RecyclerView.NO_POSITION
-    private var mEndPosition: Int = RecyclerView.NO_POSITION
+    private var mStartPosition: Int = androidx.recyclerview.widget.RecyclerView.NO_POSITION
+    private var mEndPosition: Int = androidx.recyclerview.widget.RecyclerView.NO_POSITION
 
     //记录当次滚动的距离
     private var mLastScrollDelta: Int = 0
 
     private var mFixOffset: Int = 0
 
-    override fun generateDefaultLayoutParams(): RecyclerView.LayoutParams {
-        return RecyclerView.LayoutParams(
+    override fun generateDefaultLayoutParams(): androidx.recyclerview.widget.RecyclerView.LayoutParams {
+        return androidx.recyclerview.widget.RecyclerView.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -70,8 +70,8 @@ class PokerLayoutManager @JvmOverloads constructor(
      * scrollToPosition也会，smoothScrollToPosition不会
      */
     override fun onLayoutChildren(
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ) {
         logDebug("onLayoutChildren")
 
@@ -129,18 +129,18 @@ class PokerLayoutManager @JvmOverloads constructor(
     }
 
     private fun isScrollToCase(): Boolean {
-        return mPendingScrollPosition != RecyclerView.NO_POSITION
+        return mPendingScrollPosition != androidx.recyclerview.widget.RecyclerView.NO_POSITION
     }
 
     private fun isKeyBoardCase(): Boolean {
         return mLastScrollDelta != 0 ||
-                (mStartPosition != RecyclerView.NO_POSITION
-                        && mEndPosition != RecyclerView.NO_POSITION)
+                (mStartPosition != androidx.recyclerview.widget.RecyclerView.NO_POSITION
+                        && mEndPosition != androidx.recyclerview.widget.RecyclerView.NO_POSITION)
     }
 
-    override fun onLayoutCompleted(state: RecyclerView.State) {
+    override fun onLayoutCompleted(state: androidx.recyclerview.widget.RecyclerView.State) {
         logDebug("onLayoutCompleted")
-        mPendingScrollPosition = RecyclerView.NO_POSITION
+        mPendingScrollPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION
     }
 
     override fun canScrollHorizontally() = orientation == HORIZONTAL
@@ -149,8 +149,8 @@ class PokerLayoutManager @JvmOverloads constructor(
 
     override fun scrollHorizontallyBy(
         dx: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         if (orientation == VERTICAL) return 0
 
@@ -159,8 +159,8 @@ class PokerLayoutManager @JvmOverloads constructor(
 
     override fun scrollVerticallyBy(
         dy: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         if (orientation == HORIZONTAL) return 0
 
@@ -170,8 +170,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     //delta > 0 向右或者下滑，反之则反
     private fun scrollBy(
         delta: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         if (childCount == 0 || delta == 0) {
             return 0
@@ -189,8 +189,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     override fun scrollToPosition(position: Int) {
         if (childCount == 0 || position < 0 || position > itemCount - 1) return
 
-        if (mStartPosition == RecyclerView.NO_POSITION
-            || mEndPosition == RecyclerView.NO_POSITION
+        if (mStartPosition == androidx.recyclerview.widget.RecyclerView.NO_POSITION
+            || mEndPosition == androidx.recyclerview.widget.RecyclerView.NO_POSITION
         ) return
 
         if (mPendingScrollPosition in mStartPosition..mEndPosition)
@@ -201,11 +201,12 @@ class PokerLayoutManager @JvmOverloads constructor(
     }
 
     override fun smoothScrollToPosition(
-        recyclerView: RecyclerView,
-        state: RecyclerView.State,
+        recyclerView: androidx.recyclerview.widget.RecyclerView,
+        state: androidx.recyclerview.widget.RecyclerView.State,
         position: Int
     ) {
-        val linearSmoothScroller = LinearSmoothScroller(recyclerView.context)
+        val linearSmoothScroller =
+            androidx.recyclerview.widget.LinearSmoothScroller(recyclerView.context)
         linearSmoothScroller.targetPosition = position
         startSmoothScroll(linearSmoothScroller)
     }
@@ -226,8 +227,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     //---- 自定义方法开始
     private fun fill(
         available: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         var remainingSpace = abs(available)
         logDebug("remainingSpace = $remainingSpace   ")
@@ -303,8 +304,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     }
 
     private fun fillLayout(
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ) {
         //计算填充view的初始锚点
         mFillAnchorXY = calcAnchorCoordinate()
@@ -316,8 +317,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     }
 
     private fun fixScrollOffset(
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ) {
         if (mFixOffset != 0) {
             scrollBy(-mFixOffset, recycler, state)
@@ -344,8 +345,8 @@ class PokerLayoutManager @JvmOverloads constructor(
 
     private fun fillScroll(
         delta: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         return if (delta > 0) {
             mFillDirection = FILL_START_TO_END
@@ -359,8 +360,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     //delta < 0
     private fun fillStart(
         delta: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         //如果startView结束的边减去`加上`移动的距离还是没出现在屏幕内
         //那么就可以继续滚动，不填充view
@@ -389,8 +390,8 @@ class PokerLayoutManager @JvmOverloads constructor(
     //delta > 0
     private fun fillEnd(
         delta: Int,
-        recycler: RecyclerView.Recycler,
-        state: RecyclerView.State
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler,
+        state: androidx.recyclerview.widget.RecyclerView.State
     ): Int {
         //如果endView的开始的边`减去`移动的距离还是没出现在屏幕内
         //那么就可以继续滚动，不填充view
@@ -432,13 +433,13 @@ class PokerLayoutManager @JvmOverloads constructor(
     /**
      * 获取itemCount第一个view的position
      */
-    private fun getFirstPosition(state: RecyclerView.State) =
+    private fun getFirstPosition(state: androidx.recyclerview.widget.RecyclerView.State) =
         if (reverseLayout) state.itemCount - 1 else 0
 
     /**
      * 获取itemCount最后一个view的position
      */
-    private fun getLastPosition(state: RecyclerView.State) =
+    private fun getLastPosition(state: androidx.recyclerview.widget.RecyclerView.State) =
         if (reverseLayout) 0 else state.itemCount - 1
 
     /**
@@ -446,7 +447,7 @@ class PokerLayoutManager @JvmOverloads constructor(
      */
     private fun recycleChildren(
         consume: Int,
-        recycler: RecyclerView.Recycler
+        recycler: androidx.recyclerview.widget.RecyclerView.Recycler
     ) {
         if (childCount == 0 || consume == 0) return
 
@@ -493,7 +494,7 @@ class PokerLayoutManager @JvmOverloads constructor(
         getDecoratedTop(child)
     }
 
-    private fun recycleOutChildren(recycler: RecyclerView.Recycler) {
+    private fun recycleOutChildren(recycler: androidx.recyclerview.widget.RecyclerView.Recycler) {
         for (view in mOutChildren) {
             removeAndRecycleView(view, recycler)
         }
@@ -503,7 +504,7 @@ class PokerLayoutManager @JvmOverloads constructor(
 
 //---- 模仿创建OrientationHelper帮助类开始
 
-    private fun hasMore(state: RecyclerView.State): Boolean {
+    private fun hasMore(state: androidx.recyclerview.widget.RecyclerView.State): Boolean {
         return mCurrentPosition >= 0 && mCurrentPosition < state.itemCount
     }
 
@@ -535,7 +536,7 @@ class PokerLayoutManager @JvmOverloads constructor(
     /**
      * 获取下一个待填充的view
      */
-    private fun nextView(recycler: RecyclerView.Recycler): View {
+    private fun nextView(recycler: androidx.recyclerview.widget.RecyclerView.Recycler): View {
         val view = recycler.getViewForPosition(mCurrentPosition)
 
         if (reverseLayout) {
@@ -548,12 +549,12 @@ class PokerLayoutManager @JvmOverloads constructor(
     }
 
     private fun getItemWidth(child: View): Int {
-        val params = child.layoutParams as RecyclerView.LayoutParams
+        val params = child.layoutParams as androidx.recyclerview.widget.RecyclerView.LayoutParams
         return getDecoratedMeasuredWidth(child) + params.leftMargin + params.rightMargin
     }
 
     private fun getItemHeight(child: View): Int {
-        val params = child.layoutParams as RecyclerView.LayoutParams
+        val params = child.layoutParams as androidx.recyclerview.widget.RecyclerView.LayoutParams
         return getDecoratedMeasuredHeight(child) + params.topMargin + params.bottomMargin
     }
 
@@ -623,11 +624,11 @@ class PokerLayoutManager @JvmOverloads constructor(
         Log.d("StackLayoutManager", msg)
     }
 
-    private fun logChildren(recycler: RecyclerView.Recycler) {
+    private fun logChildren(recycler: androidx.recyclerview.widget.RecyclerView.Recycler) {
         logDebug("childCount = $childCount -- scrapSize = ${recycler.scrapList.size}")
     }
 
-    private fun logChildrenPosition(recycler: RecyclerView.Recycler) {
+    private fun logChildrenPosition(recycler: androidx.recyclerview.widget.RecyclerView.Recycler) {
         val builder = StringBuilder()
         for (i in 0 until childCount) {
             val child = getChildAt(i)!!
@@ -646,7 +647,7 @@ class PokerLayoutManager @JvmOverloads constructor(
         logDebug("out children == ${builder.toString()}")
     }
 
-    override fun onAttachedToWindow(view: RecyclerView) {
+    override fun onAttachedToWindow(view: androidx.recyclerview.widget.RecyclerView) {
         super.onAttachedToWindow(view)
 
         //改变children绘制顺序
