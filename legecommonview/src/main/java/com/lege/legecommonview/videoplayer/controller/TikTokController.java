@@ -1,11 +1,10 @@
 package com.lege.legecommonview.videoplayer.controller;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 
 import com.dueeeke.videoplayer.controller.BaseVideoController;
-import com.lege.legecommonview.videoplayer.component.DebugInfoView;
 
 import org.jetbrains.annotations.Nullable;
 

@@ -1,12 +1,13 @@
 package com.lege.commonview.tarottest
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.icu.util.UniversalTimeScale.MAX_SCALE
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -119,7 +120,7 @@ class TarotActivity : AppCompatActivity(), SwipeBackActivityBase,
 
     private fun initView() {
         inflater = LayoutInflater.from(this)
-        adapter = object : RecyclerView.Adapter<MyViewHolder>() {
+        adapter = object : androidx.recyclerview.widget.RecyclerView.Adapter<MyViewHolder>() {
             private var selected:Int = 0
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
                 return MyViewHolder(inflater.inflate(R.layout.item_card2, parent, false))
@@ -129,6 +130,7 @@ class TarotActivity : AppCompatActivity(), SwipeBackActivityBase,
                 return resourceList.size
             }
 
+            @SuppressLint("RecyclerView")
             override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
                 val iv = holder.itemView?.findViewById<ImageView>(R.id.iv)
                 iv?.let{
@@ -162,12 +164,12 @@ class TarotActivity : AppCompatActivity(), SwipeBackActivityBase,
     }
 
     private var midLineY = -1
-    private val onScrollListener = object : RecyclerView.OnScrollListener() {
-        override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+    private val onScrollListener = object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
         }
 
-        override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+        override fun onScrolled(recyclerView: androidx.recyclerview.widget.RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val childCount = recyclerView?.childCount ?: 0
 
@@ -205,12 +207,12 @@ class TarotActivity : AppCompatActivity(), SwipeBackActivityBase,
 
     }
 
-    class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     }
 
     private lateinit var inflater: LayoutInflater
-    private lateinit var adapter: RecyclerView.Adapter<MyViewHolder>
+    private lateinit var adapter: androidx.recyclerview.widget.RecyclerView.Adapter<MyViewHolder>
     private var lastSelected = 0
     private var mHelper: SwipeBackActivityHelper? = null
     override fun onPageSelected(position: Int, isBottom: Boolean) {

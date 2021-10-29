@@ -1,10 +1,10 @@
 package com.lege.commonview.tarottest
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.Recycler
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import android.util.Log
 
 
@@ -13,7 +13,7 @@ import android.util.Log
  * Description:
  * Created by loctek on 2020/11/27.
  */
-class ViewPagerLayoutManager : LinearLayoutManager {
+class ViewPagerLayoutManager : androidx.recyclerview.widget.LinearLayoutManager {
     constructor(context: Context?, orientation: Int) : super(context, orientation, false) {
         init()
     }
@@ -30,18 +30,18 @@ class ViewPagerLayoutManager : LinearLayoutManager {
         const val TAG = "ViewPagerLayoutManager"
     }
 
-    private var mPagerSnapHelper: PagerSnapHelper? = null
+    private var mPagerSnapHelper: androidx.recyclerview.widget.PagerSnapHelper? = null
     private var mOnViewPagerListener: OnViewPagerListener? = null
-    private var mRecyclerView: RecyclerView? = null
+    private var mRecyclerView: androidx.recyclerview.widget.RecyclerView? = null
 
     //位移，用来判断移动方向
     private var mDrift = 0
 
     private fun init() {
-        mPagerSnapHelper = PagerSnapHelper()
+        mPagerSnapHelper = androidx.recyclerview.widget.PagerSnapHelper()
     }
 
-    override fun onAttachedToWindow(view: RecyclerView?) {
+    override fun onAttachedToWindow(view: androidx.recyclerview.widget.RecyclerView?) {
         //RecyclerView.setLayoutManager会调用到这个方法，所以不需要在外部recyclerview.attachxxx了
         super.onAttachedToWindow(view)
         mPagerSnapHelper?.attachToRecyclerView(view)
@@ -58,7 +58,7 @@ class ViewPagerLayoutManager : LinearLayoutManager {
      */
     override fun onScrollStateChanged(state: Int) {
         when (state) {
-            RecyclerView.SCROLL_STATE_IDLE -> {
+            androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE -> {
                 //中间的View
                 val viewCenter = mPagerSnapHelper!!.findSnapView(this)
                 if (viewCenter != null) {
@@ -68,9 +68,9 @@ class ViewPagerLayoutManager : LinearLayoutManager {
                     }
                 }
             }
-            RecyclerView.SCROLL_STATE_DRAGGING -> {
+            androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING -> {
             }
-            RecyclerView.SCROLL_STATE_SETTLING -> {
+            androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_SETTLING -> {
             }
             else -> {
             }
@@ -85,7 +85,7 @@ class ViewPagerLayoutManager : LinearLayoutManager {
      * @param state
      * @return
      */
-    override fun scrollVerticallyBy(dy: Int, recycler: Recycler?, state: RecyclerView.State?): Int {
+    override fun scrollVerticallyBy(dy: Int, recycler: Recycler?, state: androidx.recyclerview.widget.RecyclerView.State?): Int {
         mDrift = dy
         return super.scrollVerticallyBy(dy, recycler, state)
     }
@@ -101,7 +101,7 @@ class ViewPagerLayoutManager : LinearLayoutManager {
     override fun scrollHorizontallyBy(
         dx: Int,
         recycler: Recycler?,
-        state: RecyclerView.State?
+        state: androidx.recyclerview.widget.RecyclerView.State?
     ): Int {
         mDrift = dx
         return super.scrollHorizontallyBy(dx, recycler, state)

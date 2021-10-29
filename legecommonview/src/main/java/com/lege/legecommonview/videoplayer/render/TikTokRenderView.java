@@ -1,8 +1,8 @@
 package com.lege.legecommonview.videoplayer.render;
 
 import android.graphics.Bitmap;
-import android.support.annotation.NonNull;
-import android.util.Log;
+import androidx.annotation.NonNull;
+
 import android.view.View;
 
 

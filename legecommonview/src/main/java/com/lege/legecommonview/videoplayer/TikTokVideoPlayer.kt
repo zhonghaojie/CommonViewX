@@ -9,8 +9,8 @@ import android.net.Uri
 import android.os.Handler
 import android.os.Message
 import android.os.SystemClock
-import android.support.constraint.ConstraintLayout
-import android.support.v4.content.ContextCompat
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -31,7 +31,7 @@ import java.lang.ref.WeakReference
  * Description:
  * Created by loctek on 2020/10/20.
  */
-class TikTokVideoPlayer(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) :
+class TikTokVideoPlayer(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     ConstraintLayout(context, attrs, defStyleAttr) {
     interface OnProgressChangedListener {
         fun onProgressChanged(progress: Int)
@@ -45,8 +45,8 @@ class TikTokVideoPlayer(context: Context?, attrs: AttributeSet?, defStyleAttr: I
         unKnow, loadFinish, playing, playEnd, pause, error_server, error_unknown
     }
 
-    constructor(context: Context?) : this(context, null, -1)
-    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, -1)
+    constructor(context: Context) : this(context, null, -1)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, -1)
 
     private lateinit var videoLayout: View
 
