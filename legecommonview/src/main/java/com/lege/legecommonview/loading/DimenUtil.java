@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
-import com.google.android.exoplayer2.ExoPlayerFactory;
 
 
 /**
