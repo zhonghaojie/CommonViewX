@@ -145,7 +145,7 @@ public class MyCircleImageView extends AppCompatImageView {
     @Override
     public void setScaleType(ImageView.ScaleType scaleType) {
         if (scaleType != SCALE_TYPE) {
-            throw new IllegalArgumentException(String.format("ScaleType %s not supported.", scaleType));
+//            throw new IllegalArgumentException(String.format("ScaleType %s not supported.", scaleType));
         }
     }
 
